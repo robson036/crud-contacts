@@ -1,0 +1,13 @@
+version: "3.2"
+services:
+    db:
+        image: mongo:4.2
+        container_name: db
+        restart: always
+        env_file: .env
+        ports:
+            - 27017:27017
+        environment:
+            MONGO_INITDB_DATABASE: ${DB_NAME}
+            MONGO_INITDB_USERNAME: ${DB_USER}
+            MONGO_INITDB_PASSWORD: ${DB_PASS}
